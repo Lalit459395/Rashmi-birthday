@@ -24,18 +24,18 @@
   @keyframes pop { from { transform: scale(1); } to { transform: scale(1.1); } }
   .confetti, #fireworks, #emoji-container, #sparkleCanvas { transition: opacity 2s ease; }
   .fade-out { opacity: 0 !important; }
-  .card { background: white; margin: 20px auto; padding: 20px; max-width: 700px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: fadeIn 2s ease-in; z-index: 2; position: relative; }
+  .card { background: white; margin: 20px auto; padding: 20px; max-width: 700px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: fadeIn 2s ease-in; z-index: 2; position: relative; text-align: left; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .point { background: #ffe7f3; margin: 10px; padding: 15px; border-radius: 12px; font-size: 1.1rem; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-in; }
   .point.show { opacity: 1; transform: translateY(0); }
   .hidden { display: none; }
-  #surprise { position: relative; display: inline-block; margin-top: 20px; }
+  #surprise { position: relative; display: inline-block; margin-top: 20px; text-align: center; }
   #surprise h2, #surprise p { opacity: 0; transform: scale(0.8); animation-fill-mode: forwards; position: relative; z-index: 2; }
   .bounce-glow { animation: bounceGlow 1s ease infinite alternate; opacity: 1 !important; transform: scale(1) !important; }
   @keyframes bounceGlow { 0% { transform: translateY(0) scale(1); text-shadow: 0 0 10px #ff3d6b; } 50% { transform: translateY(-15px) scale(1.1); text-shadow: 0 0 20px #ff9fbf; } 100% { transform: translateY(0) scale(1); text-shadow: 0 0 10px #ff3d6b; } }
   #fireworks { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
   #sparkleCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index:1; }
-  footer { margin: 40px 0; font-size: 1.2rem; color: #222; position: relative; z-index: 2; }
+  footer { margin: 40px 0; font-size: 1.2rem; color: #222; position: relative; z-index: 2; text-align: center; }
 </style>
 </head>
 <body>
@@ -46,18 +46,25 @@
 <div id="emoji-container"></div>
 
 <div class="card">
-  <p>So today, the legend herself turns a year older, our one and only Rashmi 💖</p>
+  <p>So today, the legend herself turns a year older, our one and only Rashmi 👑🎉.</p>
+  <p>Now, somethings about YOU that I like:</p>
 
-  <div class="point">1️⃣ You have a PhD in overthinking — 2 min thought = 2 hours 🌀</div>
-  <div class="point">2️⃣ You skip normal anger & go straight to khoon khaulna 🔥 (though khoon is kam 😂)</div>
-  <div class="point">3️⃣ You care for me way too much ❤️</div>
-  <div class="point">4️⃣ Fav dialogue: "Time se sojana" 😴 (me: kabhi nahi 😅)</div>
-  <div class="point">5️⃣ Legendary answer to "din kaisa tha?" — "Thik gya" 😂</div>
-  <div class="point">6️⃣ "Kya kar rahi ho?" — "Kuch nhi" (Ambani se rich hoti salary milti toh 💸)</div>
-  <div class="point">7️⃣ "Hmm, ohh, ok, acha" — ek dictionary likhi jaa sakti hai 📖</div>
-  <div class="point">8️⃣ Tumhari daant bhi pasand hai 😅❤️</div>
-  <div class="point">9️⃣ Phone uthate hi light चली जाती है ⚡, light wale ko dhamki 🤣</div>
-  <div class="point">🔟 Voice msg = secret treasure 🎤🤫</div>
+  <p class="point">1️⃣ You have a PhD in overthinking — seriously, you can make a 2-minute thought last 2 hours 🌀.</p>
+  <p class="point">2️⃣ You don’t get angry like normal people. You skip straight to khoon khaulna mode 🔥… even though you don’t actually have much khoon inside 😂.</p>
+  <p class="point">3️⃣ You care for me way too much — honestly, sometimes I wonder how I got this lucky ❤️.</p>
+  <p class="point">4️⃣ Your favorite dialogue? ‘Time se sojana’ 😴. But me? I obviously never listen 😅.</p>
+  <p class="point">5️⃣ Whenever I ask how your day went, the legendary answer is always: ‘Thik gya.’ Like wow Rashmi, what a detailed autobiography 😂.</p>
+  <p class="point">6️⃣ And the funniest — whenever I ask ‘kya kar rahi ho?’, you go: ‘Kuch nhi.’ Arre madam, agar aapko ‘kuch nhi’ ka salary milta, toh aaj Ambani se bhi rich hoti 💸😂.</p>
+  <p class="point">7️⃣ The way you say “hmm, ohh, ok, acha” in 10 different tones… bas wahi ek dictionary likhi jaa sakti hai 📖😂.</p>
+  <p class="point">8️⃣ Aur sabse khas baat — mujhe tumhari daant bhi pasand hai 😅❤️. Matlab thoda darr, thoda maza, aur sabse zyada care chhupi hoti hai usme.</p>
+  <p class="point">9️⃣ Aur haa, jab tum phone uthati ho light chali jati hai.......tum light wale ko marne ki dhamki deti ho 😂🤣.</p>
+  <p class="point">🔟 Fun fact:- tum kabhi apna voice message nahi bhejti 😅… jaise apni awaaz ka secret treasure ho aur sirf safe hands ke liye rakha ho 🤫😂.</p>
+
+  <p>But jokes apart — Rashmi, you’re the best. You make life lighter, you make me feel cared for, and you turn even boring moments into memories.</p>
+
+  <p>So, on your birthday, here’s to more late-night talks, more ‘thik gya’ replies, and more care (even if I ignore your jaldi sojana warnings 😅).</p>
+
+  <p>Happy Birthday, Rashmi 🥂💖 — cheers to another year of laughs, chaos, and us being the unstoppable duo we are!</p>
 
   <div id="surprise" class="hidden">
     <canvas id="sparkleCanvas"></canvas>
@@ -118,3 +125,4 @@
 </script>
 </body>
 </html>
+
