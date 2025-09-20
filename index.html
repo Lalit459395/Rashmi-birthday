@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Rashmi 🎉</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 40px;
+    color: #ff3d6b;
+    text-shadow: 2px 2px #fff;
+    animation: pop 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes pop { from { transform: scale(1); } to { transform: scale(1.1); } }
+  .confetti, #fireworks, #emoji-container, #sparkleCanvas { transition: opacity 2s ease; }
+  .fade-out { opacity: 0 !important; }
+  .card { background: white; margin: 20px auto; padding: 20px; max-width: 700px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); animation: fadeIn 2s ease-in; z-index: 2; position: relative; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .point { background: #ffe7f3; margin: 10px; padding: 15px; border-radius: 12px; font-size: 1.1rem; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-in; }
+  .point.show { opacity: 1; transform: translateY(0); }
+  .hidden { display: none; }
+  #surprise { position: relative; display: inline-block; margin-top: 20px; }
+  #surprise h2, #surprise p { opacity: 0; transform: scale(0.8); animation-fill-mode: forwards; position: relative; z-index: 2; }
+  .bounce-glow { animation: bounceGlow 1s ease infinite alternate; opacity: 1 !important; transform: scale(1) !important; }
+  @keyframes bounceGlow { 0% { transform: translateY(0) scale(1); text-shadow: 0 0 10px #ff3d6b; } 50% { transform: translateY(-15px) scale(1.1); text-shadow: 0 0 20px #ff9fbf; } 100% { transform: translateY(0) scale(1); text-shadow: 0 0 10px #ff3d6b; } }
+  #fireworks { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+  #sparkleCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index:1; }
+  footer { margin: 40px 0; font-size: 1.2rem; color: #222; position: relative; z-index: 2; }
+</style>
+</head>
+<body>
+
+<h1>🎉 Happy Birthday Rashmi 👑</h1>
+<canvas class="confetti"></canvas>
+<canvas id="fireworks"></canvas>
+<div id="emoji-container"></div>
+
+<div class="card">
+  <p>So today, the legend herself turns a year older, our one and only Rashmi 💖</p>
+
+  <div class="point">1️⃣ You have a PhD in overthinking — 2 min thought = 2 hours 🌀</div>
+  <div class="point">2️⃣ You skip normal anger & go straight to khoon khaulna 🔥 (though khoon is kam 😂)</div>
+  <div class="point">3️⃣ You care for me way too much ❤️</div>
+  <div class="point">4️⃣ Fav dialogue: "Time se sojana" 😴 (me: kabhi nahi 😅)</div>
+  <div class="point">5️⃣ Legendary answer to "din kaisa tha?" — "Thik gya" 😂</div>
+  <div class="point">6️⃣ "Kya kar rahi ho?" — "Kuch nhi" (Ambani se rich hoti salary milti toh 💸)</div>
+  <div class="point">7️⃣ "Hmm, ohh, ok, acha" — ek dictionary likhi jaa sakti hai 📖</div>
+  <div class="point">8️⃣ Tumhari daant bhi pasand hai 😅❤️</div>
+  <div class="point">9️⃣ Phone uthate hi light चली जाती है ⚡, light wale ko dhamki 🤣</div>
+  <div class="point">🔟 Voice msg = secret treasure 🎤🤫</div>
+
+  <div id="surprise" class="hidden">
+    <canvas id="sparkleCanvas"></canvas>
+    <h2>🥂 Cheers to more laughs, chaos & late-night talks 💕</h2>
+    <p>Happy Birthday Rashmi 🎂💖 — you’re truly the best!</p>
+  </div>
+</div>
+
+<footer>Made with ❤️ just for Rashmi ✨</footer>
+
+<audio id="bg-music" autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_3b6e3e34f2.mp3?filename=happy-birthday-piano-14396.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Confetti
+  const canvas = document.querySelector('.confetti');
+  const ctx = canvas.getContext('2d');
+  let confetti = [];
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function randomConfetti(){ return {x: Math.random()*canvas.width, y: Math.random()*canvas.height - canvas.height, r: Math.random()*6+4, d: Math.random()*20+10, color:`hsl(${Math.random()*360},100%,50%)`};}
+  for(let i=0;i<150;i++) confetti.push(randomConfetti());
+  function drawConfetti(){ ctx.clearRect(0,0,canvas.width,canvas.height); confetti.forEach(c=>{ ctx.beginPath(); ctx.arc(c.x,c.y,c.r,0,Math.PI*2,false); ctx.fillStyle=c.color; ctx.fill();}); updateConfetti();}
+  function updateConfetti(){ confetti.forEach((c,i)=>{ c.y+=Math.cos(c.d)+1+c.r/2; c.x+=Math.sin(c.d); if(c.y>canvas.height){ c.x=Math.random()*canvas.width; c.y=-10; } });}
+  setInterval(drawConfetti,20);
+
+  // Floating emojis
+  const emojiContainer=document.getElementById('emoji-container');
+  const emojis=["🎂","❤️","🎈","😂","🎁","✨"];
+  function createEmoji(){ const e=document.createElement('div'); e.classList.add('emoji'); e.innerText=emojis[Math.floor(Math.random()*emojis.length)]; e.style.left=Math.random()*100+"vw"; e.style.fontSize=(Math.random()*20+20)+"px"; e.style.animationDuration=(Math.random()*5+5)+"s"; emojiContainer.appendChild(e); setTimeout(()=>e.remove(),8000);}
+  const emojiInterval=setInterval(createEmoji,1000);
+
+  // Sequential reveal
+  const points=document.querySelectorAll('.point');
+  function revealPoints(){ points.forEach((p,i)=>{ setTimeout(()=>{ p.classList.add('show'); if(i===points.length-1){ setTimeout(()=>revealSurprise(),1000); }}, i*1500);});}
+
+  // Fireworks
+  const fwCanvas=document.getElementById('fireworks'); const fwCtx=fwCanvas.getContext('2d'); fwCanvas.width=window.innerWidth; fwCanvas.height=window.innerHeight; let particles=[];
+  function createFirework(x,y){ for(let i=0;i<50;i++){ particles.push({x:x,y:y,vx:Math.random()*6-3,vy:Math.random()*6-3,alpha:1,color:`hsl(${Math.random()*360},100%,50%)`}); } }
+  function drawFireworks(){ fwCtx.clearRect(0,0,fwCanvas.width,fwCanvas.height); particles.forEach((p,i)=>{ fwCtx.globalAlpha=p.alpha; fwCtx.fillStyle=p.color; fwCtx.beginPath(); fwCtx.arc(p.x,p.y,3,0,Math.PI*2); fwCtx.fill(); p.x+=p.vx; p.y+=p.vy; p.alpha-=0.02; if(p.alpha<=0) particles.splice(i,1);}); requestAnimationFrame(drawFireworks);}
+  function startFireworks(){ drawFireworks(); const fwInterval=setInterval(()=>{ createFirework(Math.random()*window.innerWidth,Math.random()*window.innerHeight/2);},500); setTimeout(()=>{ clearInterval(fwInterval); fwCanvas.classList.add('fade-out'); emojiContainer.classList.add('fade-out'); canvas.classList.add('fade-out');},10000);}
+
+  // Sparkle particles behind text
+  const sparkleCanvas=document.getElementById('sparkleCanvas'); const sc= sparkleCanvas.getContext('2d'); sparkleCanvas.width=300; sparkleCanvas.height=100; let sparkles=[];
+  for(let i=0;i<50;i++){ sparkles.push({x:Math.random()*300, y:Math.random()*100, r:Math.random()*2+1, dx:(Math.random()-0.5)/2, dy:(Math.random()-0.5)/2, alpha: Math.random()});}
+  function drawSparkles(){ sc.clearRect(0,0,300,100); sparkles.forEach(s=>{ sc.globalAlpha=s.alpha; sc.fillStyle='gold'; sc.beginPath(); sc.arc(s.x,s.y,s.r,0,Math.PI*2); sc.fill(); s.x+=s.dx; s.y+=s.dy; if(s.x<0||s.x>300)s.dx*=-1; if(s.y<0||s.y>100)s.dy*=-1; }); requestAnimationFrame(drawSparkles);}
+  
+  function revealSurprise(){
+    const surprise=document.getElementById('surprise'); surprise.classList.remove('hidden');
+    const h2=surprise.querySelector('h2'); const p=surprise.querySelector('p');
+    setTimeout(()=>{ h2.classList.add('bounce-glow'); p.classList.add('bounce-glow'); drawSparkles(); },100);
+    startFireworks();
+  }
+
+  revealPoints();
+</script>
+</body>
+</html>
